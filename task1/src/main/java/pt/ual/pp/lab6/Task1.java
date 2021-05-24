@@ -56,5 +56,15 @@ public class Task1 {
                 (string.length() - string.replace("w", "").length()) % 2 == 0 &&
                 (string.length() - string.replace("w", "").length()) != 0)
                 .forEach(System.out::println);
+
+//        int countWs = 0;
+//        for(final var string : strings) {
+//            for(final var word : string.split(" ")) {
+//                if(word.indexOf('w') != -1) {
+//                    countWs++;
+//                }
+//            }
+//        }
+//        return countWs != 0 && countWs % 2 == 0;
     }
 }
