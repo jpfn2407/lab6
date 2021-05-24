@@ -5,28 +5,32 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
+
+//class FilterPredicate implements Predicate<String> {
+//    @Override
+//    public boolean test(final String s) {
+//        return s.charAt(0) == 'A';
+//    }
+//}
 
 public class Task1 {
-
-    public static boolean filter(String s) {
-        return s.charAt(0) == 'A';
-    }
+//
+//    public static boolean filter(String s) {
+//        return s.charAt(0) == 'A';
+//    }
 
     public static List<String> filterStrings(List<String> strings){
-        ArrayList<String> result = new ArrayList<>();
-//        Iterator<String> iterator = strings.iterator();
-//        while(iterator.hasNext()) {
-//            String string = iterator.next();
-//            if(filter(string)) {
+//        List<String> result = new ArrayList<>();
+//        for(final var string : strings) {
+////            if(filter(string)) {
+//            if(new FilterPredicate().test(string)) {
 //                result.add(string);
 //            }
 //        }
-        for(final var string : strings) {
-            if(filter(string)) {
-                result.add(string);
-            }
-        }
-        return result;
+//        return result;
+        return strings.stream().filter((string) -> string.charAt(0) == 'A').collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
