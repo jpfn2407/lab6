@@ -21,7 +21,7 @@ public class Task1 {
 //        return s.charAt(0) == 'A';
 //    }
 
-    public static List<String> filterStrings(List<String> strings){
+    public static List<String> filterStrings(List<String> strings, Predicate<String> predicate){
 //        List<String> result = new ArrayList<>();
 //        for(final var string : strings) {
 ////            if(filter(string)) {
@@ -30,7 +30,8 @@ public class Task1 {
 //            }
 //        }
 //        return result;
-        return strings.stream().filter((string) -> string.charAt(0) == 'A').collect(Collectors.toList());
+//        return strings.stream().filter((string) -> string.charAt(0) == 'A').collect(Collectors.toList());
+        return strings.stream().filter(string -> predicate.test(string)).collect(Collectors.toList());
     }
 
     public static void main(String[] args) {
@@ -44,7 +45,10 @@ public class Task1 {
         System.out.println(strings);
 
         System.out.println("Filtered:");
-        List<String> filtered = filterStrings(strings);
+        List<String> filtered = filterStrings(strings,  s -> s.charAt(0) == 'A');
         System.out.println(filtered);
+
+//        filterStrings(strings, string -> string.length() > 10);
+//        filterStrings(strings, string -> string.split(" ").length > 8);
     }
 }
