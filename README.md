@@ -84,7 +84,7 @@ List<Person> people = Arrays.asList(
 ```
 Recorra a *Stream* e expressões lambda para responder às questões.
 
-a) Apresente a contagem de pessoas cuja idade é igual ou superior à media na coleção.
+a) Apresente a contagem de pessoas cuja idade é igual ou superior à média na coleção.
 
 b) Apresente o desvio padrão das idades na coleção.
 
