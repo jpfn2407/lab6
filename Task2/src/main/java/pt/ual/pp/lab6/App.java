@@ -1,9 +1,11 @@
 package pt.ual.pp.lab6;
 
+import java.util.*;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 
 class StudentRecord {
     private final String number;
@@ -36,6 +38,13 @@ class PrintConsumer implements Consumer<StudentRecord> {
     }
 }
 
+class PrintPredicate implements Predicate<Integer> {
+    @Override
+    public boolean test(Integer i) {
+        return i < 10;
+    }
+}
+
 public class App {
     public static void main(String[] args) {
         List<StudentRecord> studentRecords = Arrays.asList(
@@ -51,6 +60,14 @@ public class App {
             StudentRecord studentRecord = iterator.next();
             new PrintConsumer().accept(studentRecord);
         }
+
+        for(StudentRecord student: studentRecords){
+            if(new PrintPredicate().test(student.getGrade())){
+                System.out.println(student.getNumber() + " " + student.getName());
+            }
+        }
+
+
     }
 }
 
