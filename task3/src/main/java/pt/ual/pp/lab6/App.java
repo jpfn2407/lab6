@@ -58,9 +58,20 @@ public class App {
                                                 mapToInt(Person::getAge)
                                                 .sum()
                                                 /people.size())
-                                        ,2)).sum() /people.size())
+                                        ,2)).sum()
+                        /people.size())
         );
 
+        //Task 3 C)
+
+        HashMap<String, Person> personHashMap = new HashMap<>();
+
+        people.stream().forEach(person -> personHashMap.put(person.getId(), person));
+
+        for(Map.Entry<String, Person> pessoa : personHashMap.entrySet()){
+            Person objPessoa = pessoa.getValue();
+            System.out.println(pessoa.getKey() + "=Person(" + objPessoa.getId() + "," + objPessoa.getName() + "," + objPessoa.getAge() + ")");
+        }
 
     }
 }
