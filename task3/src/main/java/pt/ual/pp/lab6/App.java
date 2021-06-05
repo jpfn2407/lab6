@@ -26,6 +26,15 @@ class Person{
     public int getAge() {
         return age;
     }
+
+    @Override
+    public String toString() {
+        return getId()
+                + "=Person(" + getId()
+                + "," + getName()
+                + "," + getAge()
+                + ")";
+    }
 }
 
 
@@ -64,14 +73,28 @@ public class App {
 
         //Task 3 C)
 
-        HashMap<String, Person> personHashMap = new HashMap<>();
+        Map<String, Person> personMap = people.stream().collect(Collectors.toMap(p -> p.getId(), p -> p));
+        personMap.values().forEach(System.out::println);
+        //personMap.forEach((k,v) -> System.out.println(v));
 
-        people.stream().forEach(person -> personHashMap.put(person.getId(), person));
+        /*personHashMap.entrySet().forEach(e -> System.out.println((e.getKey()
+                + "=Person(" + e.getValue().getId()
+                + "," + e.getValue().getName()
+                + "," + e.getValue().getAge()
+                + ")")));*/
 
-        for(Map.Entry<String, Person> pessoa : personHashMap.entrySet()){
+        /*people.stream().forEach(person -> personHashMap.put(person.getId(), person));*/
+
+        /*for(Map.Entry<String, Person> pessoa : personHashMap.entrySet()){
             Person objPessoa = pessoa.getValue();
-            System.out.println(pessoa.getKey() + "=Person(" + objPessoa.getId() + "," + objPessoa.getName() + "," + objPessoa.getAge() + ")");
-        }
+            System.out.println(pessoa.getKey()
+                    + "=Person(" + objPessoa.getId()
+                    + "," + objPessoa.getName()
+                    + "," + objPessoa.getAge()
+                    + ")");
+        }*/
+
+
 
     }
 }

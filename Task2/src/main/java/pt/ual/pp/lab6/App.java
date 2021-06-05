@@ -29,6 +29,11 @@ class StudentRecord {
     public int getGrade() {
         return grade;
     }
+
+    @Override
+    public String toString() {
+        return getNumber() + " " + getGrade();
+    }
 }
 
 class PrintConsumer implements Consumer<StudentRecord> {
@@ -55,11 +60,21 @@ public class App {
                 new StudentRecord("5", "James", 15)
         );
 
-        Iterator<StudentRecord> iterator = studentRecords.iterator();
+
+        //Task 2 C)
+
+        /*Iterator<StudentRecord> iterator = studentRecords.iterator();
         while(iterator.hasNext()){
             StudentRecord studentRecord = iterator.next();
             new PrintConsumer().accept(studentRecord);
-        }
+        }*/
+        
+        //studentRecords.forEach(s -> System.out.println(s.getNumber() + " " + s.getGrade()));
+
+        studentRecords.forEach(System.out::println);
+
+
+        //Task 2 D)
 
         for(StudentRecord student: studentRecords){
             if(new PrintPredicate().test(student.getGrade())){
